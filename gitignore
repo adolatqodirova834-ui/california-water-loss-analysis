@@ -1,0 +1,8 @@
+# Ma'lumot fayllari: manba ochiq, tozalash daftarda keltirilgan
+*.csv
+
+# Colab va Jupyter vaqtinchalik fayllari
+.ipynb_checkpoints/
+
+# Excel ochiq turganda yaratadigan vaqtinchalik fayllar
+~$*.xlsx

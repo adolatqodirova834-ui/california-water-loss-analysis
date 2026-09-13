@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quvurdan oqqan suv — Kaliforniya suv yo'qotish tahlili</title>
+<meta name="description" content="Kaliforniya suv korxonalarining 3541 ta yillik hisoboti tahlili. Yo'qotishni kamaytirishga mablag' ajratilsa, u qaysi shaharlarga berilishi kerak?">
+<meta property="og:title" content="Quvurdan oqqan suvni qayerdan izlash kerak?">
+<meta property="og:description" content="428 shahar, 3541 hisobot, 9 yil. Foizga asoslangan reyting noto'g'ri shaharlarni ko'rsatadi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Spectral:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abyss:#071219;
+  --ink:#0E1F29;
+  --slate:#5A7280;
+  --mist:#F3F7F9;
+  --line:#DCE5EA;
+  --aqua:#128099;
+  --aqua-lt:#45B4CF;
+  --aqua-pale:#DEF1F6;
+  --brass:#A06E17;
+  --brass-pale:#FBF1DC;
+  --nav:64px;
+  --sh:0 1px 2px rgba(14,31,41,.05),0 10px 28px -14px rgba(14,31,41,.22);
+  --sh2:0 2px 6px rgba(14,31,41,.07),0 22px 50px -20px rgba(14,31,41,.32);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav) + 14px);-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:#fff;color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-size:17.5px;line-height:1.64;font-feature-settings:"tnum" 1;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.75rem}
+h1,h2{font-family:Spectral,Georgia,serif;font-weight:700;line-height:1.12;margin:0;letter-spacing:-.014em}
+h2{font-size:clamp(1.75rem,3.7vw,2.7rem)}
+h3{font-size:1.1rem;margin:0 0 .5rem;font-weight:600}
+p{margin:0 0 1.1rem}
+a{color:var(--aqua)}
+.lead{font-size:clamp(1.08rem,2.1vw,1.32rem);line-height:1.55;color:var(--slate);max-width:60ch;margin-bottom:0}
+.narrow{max-width:62ch}
+.label{display:inline-block;font-size:.78rem;font-weight:600;color:var(--aqua);
+  background:var(--aqua-pale);padding:.3rem .75rem;border-radius:99px;margin-bottom:1rem}
+
+/* -------- nav -------- */
+nav{position:sticky;top:0;z-index:60;height:var(--nav);
+  background:rgba(255,255,255,.9);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:100%;gap:1.2rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink);white-space:nowrap}
+.brand svg{width:22px;height:22px;flex:none}
+.brand span{font-family:Spectral,Georgia,serif;font-weight:700;font-size:1.02rem}
+nav ul{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0;font-size:.95rem}
+nav a.lnk{color:var(--slate);text-decoration:none;padding:.45rem 0;border-bottom:2px solid transparent;transition:.15s}
+nav a.lnk:hover{color:var(--ink);border-bottom-color:var(--aqua)}
+.ghbtn{font-size:.9rem;font-weight:500;color:#fff;background:var(--ink);text-decoration:none;
+  padding:.5rem .95rem;border-radius:7px;white-space:nowrap;transition:background .15s}
+.ghbtn:hover{background:var(--aqua)}
+@media (max-width:920px){nav ul{display:none}}
+
+/* -------- rasm bloklari -------- */
+.photo{background:linear-gradient(150deg,#123A4A,#0B222D 55%,#154E5F);
+  background-size:cover;background-position:center;position:relative}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,18,25,.35),rgba(7,18,25,.78))}
+.photo > *{position:relative;z-index:2}
+
+/* -------- hero -------- */
+.hero{min-height:min(86vh,720px);display:flex;align-items:flex-end;color:#fff;
+  background-image:url("hero.jpg"),linear-gradient(150deg,#123A4A,#0B222D 55%,#154E5F);
+  background-size:cover;background-position:center;padding:6rem 0 3.4rem}
+.hero.has::after{background:linear-gradient(180deg,rgba(7,18,25,.30) 0%,rgba(7,18,25,.80) 75%)}
+.hero .kick{font-size:.9rem;color:#9FCBDB;margin-bottom:1.2rem}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.4rem);color:#fff;max-width:18ch;
+  text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.hero .sub{font-size:clamp(1.06rem,2.1vw,1.32rem);color:#CFE2EA;max-width:54ch;margin:1.4rem 0 0;line-height:1.55}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.cta a{text-decoration:none;font-size:.97rem;font-weight:500;padding:.78rem 1.35rem;border-radius:8px;transition:.15s}
+.cta .primary{background:#fff;color:#0B222D}
+.cta .primary:hover{background:var(--aqua-lt);color:#04222B}
+.cta .ghost{color:#E3F0F5;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px)}
+.cta .ghost:hover{background:rgba(255,255,255,.12)}
+
+/* -------- raqamlar lentasi -------- */
+.strip{background:var(--ink);color:#fff}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;padding-top:2.2rem;padding-bottom:2.2rem}
+.strip span{display:block;font-family:Spectral,Georgia,serif;font-size:clamp(1.7rem,3.2vw,2.25rem);line-height:1.1;font-weight:700}
+.strip small{color:#8FBACB;font-size:.85rem;display:block;margin-top:.2rem;line-height:1.35}
+@media (max-width:700px){.strip .wrap{grid-template-columns:1fr 1fr}}
+
+/* -------- bo'limlar -------- */
+section{padding:5.2rem 0}
+section.mist{background:var(--mist)}
+.head{max-width:62ch}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.7rem 1.8rem;
+  box-shadow:var(--sh);transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:var(--sh2);transform:translateY(-3px)}
+.card p{font-size:.98rem;color:var(--slate);margin:0}
+.card p+p{margin-top:.7rem}
+.tag{font-size:.82rem;font-weight:600;color:var(--brass);background:var(--brass-pale);
+  padding:.22rem .65rem;border-radius:99px;display:inline-block;margin-bottom:.8rem}
+.tag.aq{color:var(--aqua);background:var(--aqua-pale)}
+.fig{font-family:Spectral,Georgia,serif;font-size:2.9rem;line-height:1.02;display:block;margin:.7rem 0 .4rem;font-weight:700}
+.fig.brass{color:var(--brass)} .fig.aqua{color:var(--aqua)}
+
+/* -------- rasm + matn qatori -------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;margin-top:0}
+.split .pic{min-height:380px;background-size:cover;background-position:center;
+  background-color:#123A4A;background-image:linear-gradient(150deg,#123A4A,#0B222D)}
+.split .txt{padding:3.4rem 3rem;display:flex;flex-direction:column;justify-content:center}
+.split.rev .pic{order:2}
+@media (max-width:860px){.split{grid-template-columns:1fr}.split .pic{min-height:240px}.split.rev .pic{order:0}.split .txt{padding:2.4rem 1.75rem}}
+
+/* -------- mozaika -------- */
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:2.2rem}
+.mosaic div{background-size:cover;background-position:center;border-radius:10px;min-height:170px;
+  background-color:#16303D;background-image:linear-gradient(150deg,#154E5F,#0B222D)}
+.mosaic div:first-child{grid-column:span 2;grid-row:span 2;min-height:350px}
+@media (max-width:860px){.mosaic{grid-template-columns:1fr 1fr}.mosaic div:first-child{min-height:220px}}
+
+/* -------- banner -------- */
+.band{color:#fff;padding:5rem 0;
+  background-image:url("band.jpg"),linear-gradient(150deg,#123A4A,#0B222D 60%,#154E5F);
+  background-size:cover;background-position:center;position:relative}
+.band .wrap{position:relative;z-index:2}
+.band .big{font-family:Spectral,Georgia,serif;font-size:clamp(3.2rem,10vw,6rem);line-height:1;color:var(--aqua-lt);font-weight:700}
+.band h2{color:#fff;max-width:20ch;margin-top:.4rem}
+.band p{color:#BDD6E0;max-width:56ch;margin-top:1.1rem}
+
+/* -------- 20 katak -------- */
+.pair{display:grid;grid-template-columns:minmax(0,17rem) 1fr auto;gap:1.2rem;align-items:center;
+  padding:1.15rem 0;border-top:1px solid var(--line)}
+.pair:last-of-type{border-bottom:1px solid var(--line)}
+.dots{display:flex;gap:5px;flex-wrap:wrap}
+.dots b{width:15px;height:15px;border-radius:4px;background:#DFE8ED;display:block}
+.dots b.on{background:var(--aqua)}
+.dots.miss b.on{background:var(--brass)}
+.count{font-family:Spectral,Georgia,serif;font-size:1.45rem;white-space:nowrap;font-weight:700}
+
+/* -------- jadval -------- */
+.tools{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:2rem 0 1.1rem}
+.tools input{flex:1 1 18rem;min-width:0;padding:.8rem 1rem;font:inherit;font-size:.98rem;
+  border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);box-shadow:var(--sh)}
+.tools input:focus{outline:2px solid var(--aqua);outline-offset:1px}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;box-shadow:var(--sh)}
+.seg button{font:inherit;font-size:.93rem;padding:.72rem 1.05rem;border:0;background:#fff;color:var(--slate);cursor:pointer;transition:.15s}
+.seg button:hover{background:var(--mist)}
+.seg button[aria-pressed="true"]{background:var(--aqua);color:#fff}
+.seg button+button{border-left:1px solid var(--line)}
+.tblwrap{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--sh)}
+.scroller{max-height:470px;overflow:auto}
+table{border-collapse:collapse;width:100%;font-size:.96rem}
+thead th{background:var(--ink);color:#fff;text-align:left;font-weight:600;padding:.8rem 1rem;font-size:.88rem;position:sticky;top:0;z-index:1}
+th.n,td.n{text-align:right}
+tbody td{padding:.62rem 1rem;border-top:1px solid #EDF2F5}
+tbody tr:hover{background:#F7FBFC}
+.chip{display:inline-block;min-width:3.1rem;text-align:center;font-family:Spectral,Georgia,serif;
+  font-size:1.02rem;font-weight:700;padding:.13rem .5rem;border-radius:7px}
+.chip.b{color:var(--brass);background:var(--brass-pale)}
+.chip.a{color:var(--aqua);background:var(--aqua-pale)}
+.shift{color:var(--slate);font-size:.9rem}
+.shift.big{color:var(--brass);font-weight:600}
+.tblnote{font-size:.89rem;color:var(--slate);margin-top:.9rem}
+
+figure{margin:2.4rem 0 0}
+figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);box-shadow:var(--sh)}
+figcaption{font-size:.88rem;color:var(--slate);margin-top:.8rem;max-width:70ch}
+svg{display:block;width:100%;height:auto}
+
+.steps{margin:2rem 0 0;padding:0;list-style:none}
+.steps li{padding:1.4rem 0;border-top:1px solid var(--line);display:grid;grid-template-columns:10rem 1fr;gap:1.6rem}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps b{font-weight:600;font-size:1.05rem}
+.steps p{margin:0;color:var(--slate);font-size:.98rem}
+code{background:var(--mist);padding:.12rem .4rem;border-radius:4px;font-size:.9em}
+.mist code{background:#E4EDF1}
+.formula{font-family:Spectral,Georgia,serif;font-size:1.06rem;background:var(--mist);border-radius:9px;padding:.7rem 1rem;margin:.7rem 0 .9rem}
+
+footer{background:var(--abyss);color:#A9C4CF;padding:4rem 0 4.5rem}
+footer h2{color:#fff;font-size:1.55rem;margin-bottom:1rem}
+footer a{color:#6FC2DA}
+footer ul{list-style:none;padding:0;margin:1.6rem 0 0;display:flex;flex-wrap:wrap;gap:2rem;font-size:.97rem}
+footer .fine{margin-top:2.4rem;font-size:.85rem;color:#6C8794;max-width:64ch}
+
+@media (max-width:860px){
+  .grid2,.grid3{grid-template-columns:1fr}
+  .pair{grid-template-columns:1fr;gap:.6rem}
+  .steps li{grid-template-columns:1fr;gap:.4rem}
+  section{padding:3.8rem 0}
+  body{font-size:16.5px}
+}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--aqua-lt);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5c3.8 4.4 6.4 8 6.4 11.1A6.4 6.4 0 0 1 12 20a6.4 6.4 0 0 1-6.4-6.4C5.6 10.5 8.2 6.9 12 2.5Z" fill="none" stroke="#128099" stroke-width="1.7"/><path d="M9.4 14.2a2.6 2.6 0 0 0 2.6 2.6" fill="none" stroke="#45B4CF" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>Suv yo'qotish tahlili</span>
+    </a>
+    <ul>
+      <li><a class="lnk" href="#muammo">Muammo</a></li>
+      <li><a class="lnk" href="#sinov">Sinov</a></li>
+      <li><a class="lnk" href="#jadval">Shaharlar</a></li>
+      <li><a class="lnk" href="#yechim">Yechim</a></li>
+      <li><a class="lnk" href="#usul">Usul</a></li>
+    </ul>
+    <a class="ghbtn" href="https://github.com/adolatqodirova834-ui/california-water-loss-analysis">Repozitoriya</a>
+  </div>
+</nav>
+
+<header class="hero photo" id="top">
+  <div class="wrap">
+    <p class="kick">Kaliforniya · 2016–2024 · ochiq davlat ma'lumoti</p>
+    <h1>Quvurdan oqqan suvni qayerdan izlash kerak?</h1>
+    <p class="sub">Suv korxonalari yo'qotishni foizda o'lchaydi va mablag'ni shu ro'yxat bo'yicha taqsimlaydi. 3541 ta rasmiy hisobot shu usul noto'g'ri shaharlarni ko'rsatishini isbotladi.</p>
+    <div class="cta">
+      <a class="primary" href="#jadval">Shaharlarni ko'rish</a>
+      <a class="ghost" href="#muammo">Muammo nimada</a>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <div><span>428</span><small>shahar va tuman</small></div>
+    <div><span>3541</span><small>yillik hisobot</small></div>
+    <div><span>9</span><small>yil qamrovi</small></div>
+    <div><span>7/20</span><small>ikki ro'yxat ustma-ustligi</small></div>
+  </div>
+</div>
+
+<div class="split" id="muammo">
+  <div class="pic" style="background-image:url('quvur.jpg')"></div>
+  <div class="txt">
+    <span class="label">Muammo</span>
+    <h2>Foiz shaharning kattaligiga bog'liq</h2>
+    <p class="lead" style="margin-top:1rem">Har bir shaharda suv quvurlardan oqib ketadi — sizib chiqadi, hisoblanmaydi yoki ruxsatsiz olinadi. Buni butunlay to'xtatib bo'lmaydi, pul esa cheklangan.</p>
+    <p style="margin-top:1.2rem;margin-bottom:0">Hozir qaror bitta raqamga qarab qabul qilinadi: berilgan suvning necha foizi yo'qolgan. Muammo shundaki, bu raqam shahar qancha suv ishlatishiga bog'liq.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="grid2" style="margin-top:0">
+      <div class="card">
+        <span class="tag">Kichik daromad</span>
+        <h3>Birinchi oila</h3>
+        <p>Oyiga 1 000 000 so'm ishlaydi, 200 000 so'mini yo'qotdi.</p>
+        <span class="fig brass">20%</span>
+        <p>Foizga qarasak — yomonroq ko'rinadi.</p>
+      </div>
+      <div class="card">
+        <span class="tag aq">Katta daromad</span>
+        <h3>Ikkinchi oila</h3>
+        <p>Oyiga 20 000 000 so'm ishlaydi, 1 000 000 so'mini yo'qotdi.</p>
+        <span class="fig aqua">5%</span>
+        <p>Aslida besh barobar ko'p pul yo'qotdi.</p>
+      </div>
+    </div>
+    <p class="narrow" style="margin-top:2rem">Suvda ham xuddi shunday. Kam suv ishlatadigan kichik kurort shaharchada ozgina yo'qotish katta foiz bo'lib chiqadi. Ko'p suv ishlatadigan sanoat shahrida esa sezilarli yo'qotish kichik foiz bo'lib ko'rinadi.</p>
+  </div>
+</section>
+
+<section class="mist">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Taqqoslash usuli</span>
+      <h2>Yo'qotishni uch xil o'lchash mumkin</h2>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <h3>Foizda</h3>
+        <div class="formula">yo'qolgan ÷ berilgan × 100</div>
+        <p>Eng keng tarqalgan usul, lekin shahar kattaligiga bog'liq.</p>
+      </div>
+      <div class="card">
+        <h3>Uy boshiga</h3>
+        <div class="formula">yo'qolgan ÷ kunlar ÷ uylar</div>
+        <p>Turli kattalikdagi shaharlarni adolatli taqqoslaydi.</p>
+      </div>
+      <div class="card">
+        <h3>Texnik chegaraga nisbatan</h3>
+        <div class="formula">yo'qolgan ÷ texnik chegara</div>
+        <p>Quvur uzunligi va bosimni hisobga oladi.</p>
+      </div>
+    </div>
+
+    <div class="mosaic">
+      <div style="background-image:url('m1.jpg')" role="img" aria-label="Quvurdan oqayotgan suv"></div>
+      <div style="background-image:url('m2.jpg')" role="img" aria-label="Ta'mirlangan quvur ulanishi"></div>
+      <div style="background-image:url('m3.jpg')" role="img" aria-label="Turar-joy mahallasi ustidan ko'rinish"></div>
+      <div style="background-image:url('m4.jpg')" role="img" aria-label="Suv jo'mragi"></div>
+      <div style="background-image:url('m5.jpg')" role="img" aria-label="Qurigan yer"></div>
+    </div>
+  </div>
+</section>
+
+<section id="sinov">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Sinov</span>
+      <h2>Uch o'lchov bir xil shaharlarni ko'rsatadimi?</h2>
+      <p class="lead">Mablag' odatda «eng yomon 20 talik» ro'yxati bo'yicha taqsimlanadi. Har bir o'lchov bo'yicha o'z 20 taligi tuzildi va ular qanchalik ustma-ust tushishi sanaldi.</p>
+    </div>
+    <div style="margin-top:2.2rem">
+      <div class="pair">
+        <span>Uy boshiga va texnik chegara</span>
+        <span class="dots" aria-hidden="true"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b></b><b></b><b></b><b></b></span>
+        <span class="count">16 / 20</span>
+      </div>
+      <div class="pair">
+        <span>Foiz va uy boshiga</span>
+        <span class="dots miss" aria-hidden="true"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></span>
+        <span class="count">7 / 20</span>
+      </div>
+      <div class="pair">
+        <span>Foiz va texnik chegara</span>
+        <span class="dots miss" aria-hidden="true"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></span>
+        <span class="count">6 / 20</span>
+      </div>
+    </div>
+    <p class="narrow" style="margin-top:2rem">Ikkita professional o'lchov bir-biriga mos keladi. Foiz esa ikkalasidan ham chetda qoladi. Agar u shunchaki «boshqacha, lekin bir xil darajada to'g'ri» o'lchov bo'lganida, ikkalasidan bir xil masofada turardi.</p>
+  </div>
+</section>
+
+<div class="band photo">
+  <div class="wrap">
+    <div class="big">317</div>
+    <h2>Bir shahar ikki ro'yxatda shuncha o'rin farq qiladi</h2>
+    <p>Big Bear foiz bo'yicha 51-o'rinda — eng yomonlar qatorida. Uy boshiga hisoblaganda esa 368-o'rinda, ya'ni deyarli namunali. 428 shahar ichida.</p>
+  </div>
+</div>
+
+<section class="mist" id="jadval">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Barcha shaharlar</span>
+      <h2>O'z shahringizni toping</h2>
+      <p class="lead">428 shaharning har biri ikki o'lchov bo'yicha reytinglangan. 1-o'rin — eng ko'p yo'qotadigan.</p>
+    </div>
+    <div class="tools">
+      <input id="q" type="search" placeholder="Shahar nomi — Fresno, Sacramento, El Segundo…" aria-label="Shahar qidirish">
+      <div class="seg" role="group" aria-label="Tartiblash">
+        <button id="sortG" aria-pressed="true">Uy boshiga</button>
+        <button id="sortP" aria-pressed="false">Foiz bo'yicha</button>
+        <button id="sortD" aria-pressed="false">Farqi katta</button>
+      </div>
+    </div>
+    <div class="tblwrap"><div class="scroller">
+      <table>
+        <thead><tr><th>Shahar yoki tuman</th><th class="n">Foiz bo'yicha</th><th class="n">Uy boshiga</th><th class="n">Siljish</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div></div>
+    <p class="tblnote" id="note"></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Natija</span>
+      <h2>To'qqiz yilda holat yaxshilanmadi</h2>
+    </div>
+    <figure style="margin-top:1.8rem">
+      <svg viewBox="0 0 760 300" role="img" aria-labelledby="tt" style="border:1px solid var(--line);border-radius:14px;background:#fff;padding:.6rem 0;box-shadow:var(--sh)">
+        <title id="tt">2016–2024 yillarda har bir uyga kuniga yo'qotilgan suv deyarli o'zgarmagan</title>
+        <line x1="62" y1="40" x2="742" y2="40" stroke="#EDF2F5"/>
+        <line x1="62" y1="100" x2="742" y2="100" stroke="#EDF2F5"/>
+        <line x1="62" y1="160" x2="742" y2="160" stroke="#EDF2F5"/>
+        <line x1="62" y1="220" x2="742" y2="220" stroke="#DCE5EA"/>
+        <text x="52" y="45" text-anchor="end" font-size="12" fill="#7E93A0">40</text>
+        <text x="52" y="105" text-anchor="end" font-size="12" fill="#7E93A0">30</text>
+        <text x="52" y="165" text-anchor="end" font-size="12" fill="#7E93A0">20</text>
+        <text x="52" y="225" text-anchor="end" font-size="12" fill="#7E93A0">0</text>
+        <polyline fill="none" stroke="#128099" stroke-width="2.8" stroke-linejoin="round"
+          points="80,68 162,64 244,79 326,78 408,64 490,90 572,85 654,81 736,72"/>
+        <circle cx="80" cy="68" r="5" fill="#128099"/><circle cx="736" cy="72" r="5" fill="#128099"/>
+        <text x="80" y="246" text-anchor="middle" font-size="12" fill="#7E93A0">2016</text>
+        <text x="408" y="246" text-anchor="middle" font-size="12" fill="#7E93A0">2020</text>
+        <text x="736" y="246" text-anchor="middle" font-size="12" fill="#7E93A0">2024</text>
+        <text x="62" y="277" font-size="12.5" fill="#5A7280">Har bir uyga kuniga yo'qotilgan suv, gallon</text>
+      </svg>
+    </figure>
+    <div class="grid2" style="margin-top:2.2rem">
+      <div class="card"><h3>Yo'qotish</h3><p>2016-yilda ham, 2024-yilda ham deyarli bir xil.</p></div>
+      <div class="card"><h3>Hisobot sifati</h3><p>Shu to'qqiz yilda sezilarli yaxshilandi.</p></div>
+    </div>
+    <p class="narrow" style="margin-top:2rem">Tarozida tez-tez turish vaznni kamaytirmaydi. O'lchash zarur, lekin o'lchashning o'zi suvni tejamaydi — o'lchagandan keyin ta'mirlash kerak.</p>
+  </div>
+</section>
+
+<div class="split rev">
+  <div class="pic" style="background-image:url('hisoblagich.jpg')"></div>
+  <div class="txt">
+    <span class="label">Natija</span>
+    <h2>Ba'zi hisobotlarga ishonib bo'lmaydi</h2>
+    <p class="lead" style="margin-top:1rem">Yo'qotilgan suv to'g'ridan-to'g'ri o'lchanmaydi. U ayirma orqali topiladi: berilgan suvdan mijozlar ishlatgani ayriladi.</p>
+    <p style="margin-top:1.2rem;margin-bottom:0">40 ta hisobotda yo'qotilgan suv manfiy chiqadi — jismonan mumkin emas. Har uchinchisida raqam texnik chegaradan past. Bunday shaharda birinchi qadam quvur ta'mirlash emas, hisoblagichlarni tekshirish.</p>
+  </div>
+</div>
+
+<section id="yechim">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Yechim</span>
+      <h2>Bitta ro'yxat o'rniga uch toifa</h2>
+      <p class="lead">Shaharlarni bitta qatorga tizish o'rniga, holatiga qarab uch guruhga ajratish kerak.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <span class="tag aq">Hisoboti ishonchli</span>
+        <h3>Darhol ta'mirlash</h3>
+        <p>Yo'qotish katta va raqamga ishonish mumkin. Muammo haqiqiy, ishni boshlash mumkin.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Hisoboti shubhali</span>
+        <h3>Avval o'lchash</h3>
+        <p>Yo'qotish katta ko'rinadi, lekin raqam ishonchsiz. Avval hisoblagichlar tekshiriladi.</p>
+      </div>
+      <div class="card">
+        <span class="tag aq">Katta hajm</span>
+        <h3>Kuzatuvda saqlash</h3>
+        <p>Holat o'rtacha, lekin shahar katta. Kichik yaxshilanish ham ko'p pul tejaydi.</p>
+      </div>
+    </div>
+    <p class="narrow" style="margin-top:2rem">Va bitta qoida: ichki qaror faqat foizga tayanmasligi kerak. Foizni hisobotdan chiqarish shart emas — u qonun talabi. Lekin mablag' taqsimlashda u yetarli emas.</p>
+  </div>
+</section>
+
+<section class="mist" id="usul">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Usul</span>
+      <h2>Qanday bajarildi</h2>
+    </div>
+    <ul class="steps">
+      <li><b>Python</b><p>Ma'lumotni yuklash, tozalash, ko'rsatkichlarni hisoblash va tahlil. 3541 ta hisobotni qo'lda hisoblab bo'lmaydi; kod bir marta yoziladi va istalgan vaqtda qayta ishga tushiriladi.</p></li>
+      <li><b>Excel</b><p>Mustaqil tekshiruv. Asosiy raqamlar <code>AVERAGEIFS</code>, <code>COUNTIFS</code>, <code>RANK</code> formulalari va pivot jadvallar bilan noldan qayta hisoblanib, Python natijasi bilan solishtirildi.</p></li>
+      <li><b>Power BI</b><p>Yakuniy panel: shaharlar reytingi, yillar bo'yicha o'zgarish, hisobot sifati va yo'qotish bog'liqligi, pul qiymati.</p></li>
+    </ul>
+    <p class="narrow" style="margin-top:2rem">Tahlil davomida manba ma'lumotida xato topildi: bitta ustun hujjatda «foiz» deb ta'riflangan, aslida yuz barobar kichik saqlangan. Tekshirilmaganda butun natija xato chiqar edi.</p>
+    <figure>
+      <img src="panel.png" alt="Power BI paneli: to'rt grafikdan iborat boshqaruv paneli" loading="lazy">
+      <figcaption>Power BI paneli — to'rt grafik, to'rt savol.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2>Loyiha materiallari</h2>
+    <p style="max-width:62ch;margin:0">Kod, hujjatlar, Excel fayllari va panel — hammasi ochiq repozitoriyada.</p>
+    <ul>
+      <li><a href="https://github.com/adolatqodirova834-ui/california-water-loss-analysis">Repozitoriya</a></li>
+      <li><a href="https://colab.research.google.com/github/adolatqodirova834-ui/california-water-loss-analysis/blob/main/waterloss.ipynb">Kodni brauzerda ochish</a></li>
+      <li><a href="xulosa.md">Qisqacha xulosa</a></li>
+      <li><a href="https://data.ca.gov/dataset/ca-urban-retail-water-system-water-loss-annual-loss-audit-data">Manba ma'lumoti</a></li>
+    </ul>
+    <p class="fine">Manba: Kaliforniya suv resurslari departamenti, tasdiqlangan suv yo'qotish auditlari. Ma'lumot 2026-yil 4-sentabr holatiga yuklab olingan. Tahlil chakana suv tizimlari bilan cheklangan.</p>
+  </div>
+</footer>
+
+<script>
+/* 428 shaharning ikki reytingdagi o'rni */
+const D=[["Sacramento County Water Agency",23.4,234.2,14,1,3055],["Casitas Municipal Water District",9.7,228.7,145,2,4687],["Atwater City Of",25.9,212.7,7,3,7781],["Reedley City Of",36.8,197.1,3,4,6266],["Calaveras County Water District",37.4,151.6,2,5,3106],["West Sacramento City Of",24.5,131.5,10,6,15190],["Calaveras County Water District",30.1,125.6,5,7,3872],["Blythe City Of",17.1,111.2,37,8,3419],["California American Water Company - Los Angeles Division",18.3,101.9,32,9,7848],["Kingsburg City Of",19.4,100.0,25,10,3888],["Sacramento County Water Agency",16.4,99.6,41,11,37528],["El Centro City Of",18.5,99.5,28,12,10006],["Golden State Water Company - Cordova",16.1,98.6,43,13,15349],["California American Water Company - Sacramento District",18.2,97.3,33,14,4736],["Exeter City Of",16.4,95.4,40,15,3332],["Los Banos City Of",18.6,89.8,27,16,13012],["Sacramento County Water Agency",18.0,88.1,34,17,41446],["Crescent City",23.2,85.0,16,18,3716],["Azusa Light and Water",15.1,84.6,50,19,24113],["Linda County Water District",17.1,84.1,36,20,5113],["El Dorado Irrigation District",23.0,83.0,18,21,42849],["Paradise Irrigation District",37.8,81.6,1,22,10879],["Yreka City Of",17.3,81.4,35,23,3109],["Modesto City Of",16.6,81.1,39,24,72015],["Anderson City Of",13.9,76.4,63,25,3552],["Folsom City Of",14.7,76.1,57,26,21654],["Chowchilla, City of Water Department",13.2,75.9,71,27,4029],["Livingston City Of",6.1,74.7,311,28,3493],["San Juan Water District",12.8,74.1,75,29,10798],["Coalinga City Of",14.8,72.2,55,30,3966],["Sierra Madre City Of",20.6,70.5,23,31,3792],["San Jose City Of",14.5,69.6,58,32,27165],["California Water Service Company Dixon, City of",23.5,69.1,13,33,3112],["South Feather Water and Power",13.4,69.1,70,34,6882],["Norco City Of",10.6,68.7,116,35,7575],["Golden State Water Company - Barstow",16.2,68.5,42,36,9320],["Delano City Of",13.5,68.4,67,37,9912],["Stockton City Of",15.1,67.8,49,38,50040],["Truckee - Donner Public Utilities District",25.6,67.4,8,39,13228],["Ripon City Of",14.8,66.9,56,40,4995],["Glendora City Of",13.5,66.8,68,41,13568],["Patterson City Of",15.8,66.5,45,42,6832],["Desert Water Agency",8.7,66.4,177,43,25429],["Martinez City Of",20.1,65.8,24,44,10281],["Brawley City Of",12.8,65.2,74,45,8680],["Calaveras County Water District",33.5,62.3,4,46,5931],["Turlock City Of",11.5,62.2,97,47,19493],["Riverside City Of",10.7,61.9,111,48,69609],["San Bernardino County Service Area 64 Spring Valley Lake",12.0,60.7,86,49,3966],["Susanville City Of",19.2,59.9,26,50,3810],["Vallejo City Of",22.0,58.9,19,51,39866],["Tracy City Of",14.9,58.1,54,52,25868],["Lamont Public Utility District",8.2,57.6,203,53,3239],["Adelanto City Of",15.8,57.6,46,54,8581],["Tuolumne Utilities District",18.5,56.5,30,55,5080],["Golden State Water Company - Orcutt",14.0,54.7,62,56,11811],["North Tahoe Public Utilities District",23.4,53.3,15,57,3454],["Yuba City",10.2,52.9,127,58,18970],["Arvin Community Service District",11.9,52.0,87,59,4225],["Santa Clarita Valley Water Agency",9.8,51.7,138,60,32384],["Rio Linda - Elverta Community Water District",21.7,51.7,20,61,4645],["Mission Springs Water District",11.4,51.4,100,62,13049],["Tehachapi City Of",18.4,50.7,31,63,3296],["Dixon City Of",11.7,50.7,92,64,3635],["Loma Linda City Of",8.1,50.5,214,65,5683],["Rubidoux Community Service District",9.6,50.0,146,66,6414],["Banning City Of",11.2,49.7,101,67,11079],["South Tahoe Public Utility District",16.6,48.8,38,68,15399],["Western Municipal Water District Of Riverside",9.6,48.6,148,69,3075],["Fairfield City Of",12.5,48.4,79,70,31876],["San Lorenzo Valley Water District",23.5,48.1,12,71,7690],["El Monte City Of",12.3,47.9,81,72,3821],["California Water Service Company Bakersfield",9.6,47.6,149,73,66830],["Milpitas City Of",12.6,47.3,78,74,16484],["Atascadero Mutual Water Company",13.0,47.1,72,75,10877],["Arcata City Of",23.1,47.1,17,76,6191],["Chino City Of",9.5,46.9,151,77,21607],["Redlands City Of",11.9,46.9,89,78,22106],["Redding City Of",9.1,46.4,165,79,30108],["Shafter City Of",7.0,46.2,268,80,4821],["Rancho California Water District",6.1,45.7,308,81,44986],["San Bernardino City Of",10.3,45.2,124,82,47415],["Olivehurst Public Utilities District",12.9,45.1,73,83,4530],["Sanger City Of",9.8,45.0,141,84,6951],["Colton City Of",8.4,44.7,192,85,10357],["West Valley Water District",10.3,44.6,123,86,23062],["Ukiah City Of",11.9,44.5,90,87,5070],["Woodland City Of",12.1,44.4,83,88,16935],["California Water Service Company Oroville",10.0,44.4,135,89,3824],["California American Water Company - Ventura District",9.5,44.4,152,90,21143],["Coachella Valley Water District",10.9,43.4,108,91,108955],["Dinuba City Of",10.2,43.0,126,92,5985],["Red Bluff City Of",10.7,42.7,112,93,4880],["Galt City Of",10.6,42.3,115,94,13639],["Fresno City Of",8.1,42.2,216,95,150418],["Fallbrook Public Utility District",7.2,42.0,253,96,9277],["Calexico City Of",8.9,41.6,173,97,8548],["Greenfield County Water District",10.7,41.5,113,98,3334],["Mountain House Community Services District",11.8,40.7,91,99,6065],["Nevada Irrigation District",14.2,40.4,60,100,5476],["Santa Fe Springs City Of",7.4,40.3,246,101,6181],["Wasco City Of",9.5,40.1,150,102,5215],["California American Water Company - Los Angeles Division",9.5,40.1,155,103,15126],["Riverbank City Of",8.7,39.8,178,104,7162],["Merced City Of",6.7,39.8,277,105,23039],["Newman City of",15.8,39.3,47,106,3507],["Humboldt Community Services District",26.8,39.2,6,107,8017],["Paramount City Of",7.5,39.0,241,108,7470],["Galt City Of",10.4,39.0,120,109,7634],["Suisun - Solano Water Authority",13.6,38.7,66,110,8550],["Stockton City Of",9.7,38.5,143,111,49186],["Western Municipal Water District Of Riverside",6.6,38.1,281,112,21644],["Livermore City Of",10.1,37.8,131,113,10462],["Amador Water Agency",24.7,37.8,9,114,3089],["Pittsburg City Of",11.4,37.6,99,115,19236],["La Verne City Of",9.4,37.6,159,116,8819],["San Diego City Of",11.6,37.5,94,117,335048],["Escondido City Of",7.4,37.4,243,118,27053],["East Bay Municipal Utility District",12.7,37.4,76,119,380605],["Palmdale Water District",9.5,36.7,157,120,27524],["California Water Service Company Chico District",8.7,36.7,181,121,30150],["Orangevale Water Company",8.1,36.6,212,122,5659],["Lodi City Of",10.1,36.6,134,123,26648],["California American Water Company - Sacramento District",9.8,36.5,139,124,14489],["Kerman City Of",13.9,36.5,64,125,3864],["Nevada Irrigation District",11.6,36.4,95,126,6648],["Golden State Water Company - South San Gabriel",10.8,36.4,109,127,5031],["Placer County Water Agency",9.5,35.6,156,128,28524],["Benicia City Of",11.4,34.7,98,129,9775],["California Water Service Company Bakersfield",6.1,34.7,307,130,7557],["San Gabriel Valley Water Company Fontana Division",7.7,34.6,235,131,49282],["Victorville Water District",8.3,34.6,201,132,36821],["Pleasanton City Of",9.0,34.5,167,133,22262],["Hollister City Of",10.7,34.3,114,134,7329],["Hanford City Of",7.5,34.3,240,135,17755],["Monterey Park City Of",8.1,34.2,217,136,13601],["Yorba Linda Water District",7.1,33.9,256,137,25284],["Santa Clarita Valley Water Agency",5.8,33.9,333,138,3921],["Golden State Water Company - Claremont",6.8,33.7,274,139,11396],["Rosamond Community Service District",9.8,33.4,137,140,5236],["Las Virgenes Municipal Water District",6.4,33.4,296,141,20974],["Sweetwater Springs Water District",24.0,33.3,11,142,3700],["Tuolumne Utilities District",18.5,33.3,29,143,4133],["Davis City Of",8.4,32.8,193,144,17225],["California American Water Company - Los Angeles Division",9.0,32.7,168,145,3138],["Riverside Highland Water Company",8.2,32.7,208,146,5409],["Olivenhain Municipal Water District",7.4,32.6,244,147,23195],["Camrosa Water District",7.4,32.4,249,148,11511],["Sunny Slope Water Company",9.6,32.1,147,149,6325],["Sacramento City Of",8.6,32.1,188,150,146997],["Morgan Hill City Of",11.2,32.1,103,151,14583],["Beverly Hills City Of",5.9,32.1,326,152,10856],["Estero Municipal Improvement District",8.2,32.1,206,153,6639],["California American Water Company - Los Angeles Division",10.7,32.1,110,154,6544],["Los Angeles City Department Of Water And Power",8.1,32.0,218,155,747397],["Placer County Water Agency",11.2,31.8,104,156,9155],["Carmichael Water District",7.9,31.7,228,157,11848],["Brentwood City Of",11.6,31.7,96,158,26898],["Cucamonga Valley Water District",6.5,31.5,290,159,49410],["Olivehurst Public Utilities District",10.4,31.5,121,160,3632],["Cloverdale City of",12.7,31.4,77,161,3320],["Jurupa Community Service District",5.8,31.2,329,162,32660],["Beaumont - Cherry Valley Water District",8.2,31.0,205,163,19742],["California Water Service Company Westlake",6.3,30.8,300,164,7134],["Valley Center Municipal Water District",5.6,30.8,340,165,10716],["Discovery Bay Community Services District",8.9,30.7,172,166,6081],["Greenfield City Of",8.3,30.6,200,167,3865],["Rubio Canyon Land And Water Association",7.8,30.4,229,168,3133],["Lincoln City Of",10.2,30.3,129,169,20760],["Montecito Water District",6.7,30.2,275,170,4736],["South Pasadena City Of",7.8,30.1,230,171,6239],["Contra Costa Water District",10.2,30.1,125,172,62742],["Sunnyvale City Of",9.2,30.1,163,173,29372],["Suburban Water Systems - Whittier/La Mirada",8.4,30.0,194,174,26882],["Arcadia City Of",8.2,29.9,207,175,14208],["Vaughn Water Company",8.0,29.8,222,176,10863],["Montebello Land And Water Company",10.5,29.7,117,177,4035],["Golden State Water Company - Placentia",8.6,29.6,187,178,13154],["Los Angeles County Waterworks District 29 - Malibu & Marina Del Rey",6.1,29.6,306,179,7691],["Coachella City Of",5.1,29.5,359,180,8649],["Fortuna City Of",15.0,29.5,52,181,4641],["Santa Fe Irrigation District",4.6,29.5,383,182,7614],["California American Water Company - Sacramento District",8.4,29.3,198,183,16727],["Bakersfield City Of",6.4,29.1,294,184,49373],["Gilroy City Of",10.5,29.1,118,185,15231],["Indian Wells Valley Water District",9.8,29.1,140,186,12477],["San Jose City Of",8.1,28.8,219,187,24388],["Rialto City Of",7.7,28.8,233,188,12073],["Imperial City Of",9.5,28.8,153,189,6292],["Lake Hemet Municipal Water District",9.5,28.6,158,190,14376],["Huntington Park City Of",6.5,28.3,287,191,5626],["Apple Valley Ranchos Water Company",8.6,28.2,186,192,21218],["Walnut Valley Water District",6.5,28.2,288,193,27626],["Yucaipa Valley Water District",8.2,28.1,211,194,13348],["San Francisco Public Utilities Commission",12.0,28.1,85,195,179461],["California Water Service Company Stockton",8.9,28.0,171,196,45530],["Vallecitos Water District",6.1,28.0,312,197,22720],["Santa Clarita Valley Water Agency",5.1,27.8,363,198,36750],["Napa City Of",8.3,27.5,199,199,26042],["Signal Hill City Of",8.5,27.4,189,200,3190],["Indio City Of",6.9,27.4,272,201,24367],["Golden State Water Company - Bell-Bell Gardens",7.6,27.4,238,202,7505],["Roseville City Of",7.1,27.2,259,203,46981],["Upland City Of",6.7,27.0,276,204,20924],["Vacaville City Of",7.6,26.9,237,205,29450],["Tustin City Of",7.5,26.8,242,206,14257],["Seal Beach City Of",9.9,26.7,136,207,5443],["South Gate City Of",11.7,26.7,93,208,13404],["Garden Grove City Of",6.5,26.6,285,209,34120],["California Water Service Company Selma",7.9,26.4,226,210,6641],["Oceanside City Of",8.2,26.4,210,211,44563],["Los Angeles County Waterworks District 40 - Antelope Valley",6.0,26.3,317,212,51760],["Eureka City Of",14.3,26.2,59,213,10080],["Twentynine Palms Water District",12.1,26.2,84,214,8315],["Sonoma City Of",8.6,26.1,185,215,4466],["Millbrae City Of",10.4,25.6,122,216,6100],["Cupertino City Of",7.2,25.6,255,217,4322],["California American Water Company - San Diego District",8.0,25.5,225,218,21931],["San Luis Obispo City Of",11.2,25.4,102,219,14765],["Marina Coast Water District",9.3,25.4,162,220,7656],["Orange City Of",9.1,25.3,164,221,36442],["Greenfield City Of",8.8,25.0,174,222,3804],["Crescenta Valley Community Water District",9.1,25.0,166,223,8348],["Carpinteria Valley Water District",4.8,25.0,369,224,4538],["Valley County Water District",7.4,24.8,245,225,12687],["El Toro Water District",5.8,24.8,335,226,9994],["Lompoc City Of",9.8,24.8,142,227,10087],["East Palo Alto City Of",8.8,24.8,175,228,4073],["Oakdale City Of",10.2,24.7,128,229,8240],["Soledad City Of",8.0,24.6,220,230,4108],["Lincoln Avenue Water Company",8.2,24.5,204,231,4486],["California American Water Company - Sacramento District",13.5,24.5,69,232,3100],["East Valley Water District",6.4,24.5,292,233,22821],["San Jose Water Company",8.0,24.4,224,234,235262],["Mammoth Community Water District",7.2,24.4,254,235,3748],["Eastern Municipal Water District",7.4,24.3,247,236,164849],["Santa Clara City Of",6.9,24.1,271,237,25939],["California Water Service Company Mid Peninsula",9.4,24.0,160,238,26349],["Buena Park City Of",6.2,23.8,303,239,19261],["Goleta Water District",6.3,23.7,299,240,17058],["California American Water Company - San Diego District",7.6,23.6,236,241,22041],["Poway City Of",9.3,23.6,161,242,14092],["Great Oaks Water Company Incorporated",6.6,23.5,283,243,21478],["Shasta Lake City Of",8.6,23.5,184,244,4184],["Covina City Of",6.6,23.4,280,245,8666],["Moulton Niguel Water District",7.4,23.3,248,246,53899],["California Water Service Company Marysville",8.0,22.8,221,247,3908],["California Water Service Company Los Altos/Suburban",6.9,22.8,270,248,19164],["Madera City Of",8.6,22.8,183,249,14806],["Suburban Water Systems - Whittier/La Mirada",6.0,22.7,318,250,15599],["Ventura County Waterworks District No 08 - Simi Valley",5.3,22.7,358,251,25389],["Compton City Of",10.5,22.5,119,252,14738],["El Segundo City Of",2.9,22.3,419,253,5127],["Vista Irrigation District",6.3,22.2,297,254,28667],["Manteca City Of",8.1,21.9,213,255,24331],["Los Angeles County Waterworks District 40 - Antelope Valley",9.0,21.9,169,256,56817],["Marin Municipal Water District",10.2,21.8,130,257,63520],["Fair Oaks Water District",5.9,21.7,323,258,14219],["Hillsborough Town Of",5.7,21.4,338,259,4339],["American Canyon City Of",7.1,21.4,258,260,5682],["Golden State Water Company - West Orange",7.0,21.3,266,261,28441],["Downey City Of",6.0,21.3,315,262,23421],["Watsonville City Of",8.7,21.0,179,263,14777],["San Buenaventura City Of (Ventura)",6.8,20.9,273,264,29953],["Ontario City Of",3.8,20.8,405,265,37835],["McKinleyville Community Services District",15.9,20.8,44,266,6424],["Cerritos City Of",8.5,20.6,190,267,15781],["Alameda County Water District",7.3,20.5,250,268,86544],["Del Oro Water Company",21.6,20.5,21,269,4836],["Hi Desert Water District",12.2,20.3,82,270,10849],["Modesto City Of",8.1,20.2,215,271,74419],["Golden State Water Company - Florence Graham",7.1,20.2,260,272,9880],["Golden State Water Company - San Dimas",5.9,20.1,325,273,16311],["Pasadena City Of",6.3,19.9,298,274,38346],["Pismo Beach City Of",8.4,19.8,196,275,4952],["Lynwood City Of",7.9,19.8,227,276,9136],["San Juan Capistrano City Of",5.3,19.7,354,277,11488],["San Fernando City Of",8.7,19.7,180,278,5319],["Valley Water Company",5.5,19.7,346,279,3639],["Golden State Water Company - Bay Point",8.5,19.7,191,280,5137],["Valley Of The Moon Water District",8.6,19.6,182,281,7167],["Laguna Beach County Water District",7.0,19.5,265,282,8757],["Fountain Valley City Of",6.0,19.5,316,283,17224],["La Habra City Of",4.8,19.5,373,284,13110],["Mountain View City Of",6.0,19.4,319,285,18655],["Santa Cruz City Of",10.1,19.4,132,286,24655],["Petaluma City Of",8.2,19.3,209,287,20540],["Redwood City",7.8,19.2,232,288,24444],["Oxnard City Of",6.1,19.2,310,289,42702],["Alhambra City Of",6.3,19.0,301,290,18482],["Trabuco Canyon Water District",6.4,19.0,293,291,4105],["Tulare City Of",4.1,19.0,398,292,20128],["Windsor Town Of",4.9,18.8,366,293,7447],["Grover Beach City Of",12.4,18.7,80,294,5243],["Palo Alto City Of",7.1,18.7,257,295,24852],["San Gabriel County Water District",6.5,18.7,289,296,9328],["Pomona City Of",7.3,18.7,252,297,32034],["Lake Arrowhead Community Services District",15.0,18.6,53,298,8369],["La Palma City Of",7.8,18.5,231,299,4421],["Rincon Del Diablo Municipal Water District",4.7,18.5,379,300,7582],["Hayward City Of",6.7,18.4,279,301,37604],["Elk Grove Water District",5.9,18.4,321,302,7981],["Sacramento Suburban Water District",7.1,18.4,261,303,46901],["California Water Service Company Palos Verdes",5.6,18.3,342,304,24484],["Newport Beach City Of",5.8,18.2,328,305,26854],["San Bruno City Of",13.8,17.9,65,306,11626],["Anaheim City Of",5.4,17.8,351,307,64359],["Ceres City Of",6.6,17.7,282,308,12138],["Burlingame City Of",6.2,17.4,302,309,9224],["Irvine Ranch Water District",6.7,17.3,278,310,120446],["Rowland Water District",5.1,17.3,364,311,13729],["Diablo Water District",7.1,17.1,263,312,12861],["Menlo Park City Of",5.9,17.0,327,313,4634],["Liberty Utilities (Park Water) Corp",6.9,16.9,269,314,7040],["Monte Vista Water District",11.1,16.9,106,315,12601],["Orchard Dale Water District",7.1,16.9,264,316,4303],["Suburban Water Systems - San Jose Hills",5.9,16.8,322,317,41914],["Westminster City Of",5.3,16.8,357,318,20746],["Santa Ana City Of",5.0,16.7,365,319,45272],["Nevada Irrigation District",8.4,16.7,197,320,3391],["Santa Barbara City Of",8.4,16.6,195,321,27349],["Torrance City Of",4.5,16.4,388,322,27031],["Helix Water District",4.8,16.4,376,323,59250],["San Jacinto City Of",7.7,16.3,234,324,4358],["California Water Service Company Bear Gulch",5.7,16.3,337,325,19219],["Groveland Community Services District",20.6,16.1,22,326,3414],["Santa Paula City Of",8.2,16.1,202,327,7742],["Quartz Hill Water District",3.8,15.9,406,328,5855],["Lompoc City Of",8.0,15.9,223,329,10015],["Burbank City Of",4.8,15.9,370,330,27428],["Hesperia Water District",4.8,15.8,371,331,27402],["Nipomo Community Service District",11.9,15.7,88,332,4515],["California Water Service Company Livermore",6.5,15.6,291,333,18983],["Thermalito Water and Sewer District",4.2,15.6,396,334,3146],["Otay Water District",4.8,15.5,372,335,52203],["Scotts Valley Water District",8.7,15.3,176,336,4337],["Alco Water Service",4.8,15.3,374,337,8703],["Santa Monica City Of",3.6,15.2,412,338,18215],["Glendale City Of",3.8,15.2,407,339,34724],["Sunnyslope County Water District",6.2,15.1,305,340,6725],["Golden State Water Company - Southwest",6.1,15.0,314,341,53839],["San Gabriel Valley Water Company",4.7,15.0,382,342,50478],["Hawthorne City Of",5.6,15.0,341,343,6471],["Lomita City Of",6.1,14.8,313,344,4383],["Golden State Water Company - Culver City",5.4,14.8,352,345,9784],["Corona City Of",5.9,14.7,324,346,44992],["Coastside County Water District",10.9,14.6,107,347,7742],["Carlsbad Municipal Water District",5.5,14.6,347,348,30798],["California Water Service Company Salinas District",5.6,14.5,343,349,25101],["Santa Rosa City Of",6.5,14.4,286,350,54976],["Santa Margarita Water District",5.1,14.4,362,351,56776],["Fullerton City Of",5.3,14.4,356,352,32015],["Daly City",7.3,14.1,251,353,23207],["California Water Service Company Dominguez",4.5,14.0,389,354,34509],["East Niles Community Services District",4.3,14.0,392,355,8097],["California American Water Company - Sacramento District",5.5,13.8,348,356,12076],["Mesa Water District",5.1,13.7,360,357,24252],["Golden State Water Company - Artesia",6.6,13.7,284,358,10881],["Golden State Water Company - South Arcadia",6.2,13.6,304,359,7586],["Cambria Community Service District",15.6,13.5,48,360,4033],["North Coast County Water District",9.0,13.4,170,361,12207],["Lakeside Water District",5.5,13.3,349,362,7096],["Brea City Of",5.4,13.2,353,363,13634],["Rohnert Park City Of",5.8,13.2,331,364,9782],["California Water Service Company King City",5.4,13.0,350,365,3029],["Golden State Water Company - Norwalk",5.8,12.8,334,366,9545],["Elsinore Valley Municipal Water District",6.4,12.5,295,367,46867],["Big Bear Community Services District",15.0,12.5,51,368,6156],["Lathrop City Of",3.8,12.4,404,369,8437],["San Clemente City Of",4.6,12.3,386,370,17709],["Santa Maria City Of",4.7,12.3,378,371,23111],["Monrovia City Of",4.0,12.1,403,372,9984],["Antioch City Of",14.0,11.9,61,373,33158],["Whittier City Of",5.5,11.9,344,374,11915],["Dublin San Ramon Services District",5.3,11.8,355,375,25204],["Healdsburg City Of",5.5,11.5,345,376,4831],["Thousand Oaks City Of",3.8,11.3,408,377,17147],["Pico Water District",4.7,11.1,381,378,5506],["Thousand Oaks City Of",3.8,11.1,409,379,14873],["South Coast Water District",5.8,10.9,330,380,13339],["Golden State Water Company - Simi Valley",4.7,10.7,377,381,13725],["Ramona Municipal Water District",5.7,10.7,336,382,9646],["Inglewood City Of",4.6,10.6,385,383,15885],["Big Bear Lake City Of",11.2,10.6,105,384,15157],["Paso Robles City Of",4.8,10.5,375,385,11553],["Port Hueneme City Of",5.8,10.4,332,386,5846],["California American Water Company - Monterey District",7.1,10.4,262,387,38773],["Running Springs Water District",9.7,10.4,144,388,3014],["California Water Service Company Hermosa/Redondo",5.6,10.2,339,389,27402],["Oildale Mutual Water Company",4.0,9.8,402,390,12217],["Camarillo City Of",4.1,9.8,400,391,13945],["Soquel Creek Water District",9.5,9.8,154,392,16012],["Tahoe City Public Utilities District",7.0,9.6,267,393,3207],["Crestline Village Water District",10.1,9.5,133,394,5044],["Lakewood City Of",4.1,9.5,397,395,20151],["California Water Service Company East Los Angeles",4.6,9.3,384,396,27118],["Huntington Beach City Of",3.2,9.3,415,397,54579],["Ventura County Waterworks District No 01 - Moorpark",2.9,9.3,418,398,10959],["Citrus Heights Water District",4.9,9.2,367,399,20402],["Mid-Peninsula Water District",4.1,9.2,399,400,8079],["Rio Vista City Of",4.5,9.1,387,401,5322],["Chino Hills City Of",2.5,8.3,424,402,21970],["Mid-Peninsula Water District",4.2,8.2,394,403,8420],["San Dieguito Water District",4.9,8.1,368,404,12766],["Pico Rivera City Of",4.4,7.6,391,405,9507],["California American Water Company - Sacramento District",4.1,7.6,401,406,14694],["North Marin Water District",6.0,7.5,320,407,20840],["Sweetwater Authority",3.5,7.5,414,408,34616],["Arroyo Grande City Of",5.1,7.5,361,409,6548],["Manhattan Beach City Of",4.7,7.3,380,410,13688],["Morro Bay City Of",6.1,6.8,309,411,5509],["California American Water Company - Sacramento District",3.0,6.7,417,412,15241],["Clovis City Of",4.3,6.6,393,413,38177],["Bellflower - Somerset Mutual Water Company",2.7,6.5,420,414,7199],["Long Beach City Of",3.1,6.0,416,415,93958],["California Water Service Company Mid Peninsula",4.4,5.2,390,416,10584],["California Water Service Company Visalia",3.6,5.1,411,417,46424],["Hemet City Of",2.6,4.9,422,418,9498],["Padre Dam Municipal Water District",4.2,4.5,395,419,24125],["Liberty Utilities (Park Water) Corp",2.4,4.2,425,420,7479],["Norwalk City Of",2.6,4.1,423,421,5414],["Westborough Water District",3.6,3.3,410,422,3896],["Nevada Irrigation District",3.5,3.1,413,423,3223],["Norwalk City Of",2.4,3.1,426,424,5410],["California Water Service Company South San Francisco",2.6,2.8,421,425,17271],["Los Angeles County Waterworks District 40 - Antelope Valley",7.5,2.0,239,426,57311],["Triunfo Sanitation District/Oak Park Water Service",1.5,1.7,428,427,4657],["Liberty Utilities (Park Water) Corp",1.9,1.6,427,428,16850]];
+const rowsEl=document.getElementById('rows'),noteEl=document.getElementById('note'),qEl=document.getElementById('q');
+const btns={g:document.getElementById('sortG'),p:document.getElementById('sortP'),d:document.getElementById('sortD')};
+let mode='g';
+function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function render(){
+  const term=qEl.value.trim().toLowerCase();
+  let list=D.filter(r=>!term||r[0].toLowerCase().includes(term));
+  if(mode==='g') list=list.slice().sort((a,b)=>a[4]-b[4]);
+  else if(mode==='p') list=list.slice().sort((a,b)=>a[3]-b[3]);
+  else list=list.slice().sort((a,b)=>Math.abs(b[3]-b[4])-Math.abs(a[3]-a[4]));
+  const shown=list.slice(0,120);
+  rowsEl.innerHTML=shown.map(r=>{
+    const d=Math.abs(r[3]-r[4]);
+    return '<tr><td>'+esc(r[0])+'</td><td class="n"><span class="chip b">'+r[3]+
+      '</span></td><td class="n"><span class="chip a">'+r[4]+
+      '</span></td><td class="n '+(d>=150?'shift big':'shift')+'">'+d+'</td></tr>';
+  }).join('');
+  if(!list.length) noteEl.textContent='Bunday nom topilmadi. Boshqacha yozib ko\u2018ring.';
+  else if(list.length>shown.length) noteEl.textContent=list.length+' ta shahardan birinchi '+shown.length+' tasi ko\u2018rsatilmoqda. Qidiruv bilan toraytiring.';
+  else noteEl.textContent=list.length+' ta shahar ko\u2018rsatilmoqda.';
+}
+function setMode(m){mode=m;for(const k in btns)btns[k].setAttribute('aria-pressed',String(k===m));render();}
+btns.g.addEventListener('click',()=>setMode('g'));
+btns.p.addEventListener('click',()=>setMode('p'));
+btns.d.addEventListener('click',()=>setMode('d'));
+qEl.addEventListener('input',render);
+render();
+</script>
+</body>
+</html>
